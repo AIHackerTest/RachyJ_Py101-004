@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>weather_query</title>
+      <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+      <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+      <script>
+      $(function() {
+          $('#btnQuery').click(function() {
+
+              $.ajax({
+                  url: '/queryCity',
+                  data: $('form').serialize(),
+                  type: 'POST',
+                  dataType: 'text',
+                  success: function(response) {
+
+                      $("#result").html(response);
+                  },
+                  error: function(error) {
+                      alert("Failed to retrieve data.");
+                  }
+              });
+          });
+      });
+
+      $(function() {
+          $('#btnHistory').click(function() {
+
+              $.ajax({
+                  url: '/showHistory',
+                  type: 'get',
+                  dataType: 'json',
+                  success: function(response) {
+                      $("#result").html(response);
+                  },
+                  error: function(error) {
+                      console.log(error);
+                  }
+              });
+          });
+      });
+
+      </script>
+  </head>
+  <body>
+    <h1>Weather Checker by Rachel Jia</h1>
+    <div class="container">
+        <div class="jumbotron">
+        <form method="get">
+            <input type="text" name="city" id="city" class="form-control" placeholder="City" required autofocus>
+            <input id="btnQuery" class="btn btn-lg btn-primary btn-block" type="button" value="Query">
+            <input id="btnHistory" type="button" value="History">
+            <input id="btnHelp" onclick="location.href='showHelp'" type="button" value="Help">
+        </form>
+        </div>
+
+        <div id="result">
+
+        </div>
+
+    </div>
+
+
+  </body>
+</html>
