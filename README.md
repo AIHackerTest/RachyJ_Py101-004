@@ -1,4 +1,4 @@
-# 开智学堂「编程思维 Python 基础班」四期课程
+# 开智学堂「编程思维 Python 基础班」四期课程 
 
 - 课程简介及资源索引：[https://github.com/AIHackers/Py101-004/wiki](https://github.com/AIHackers/Py101-004/wiki)
 - 课程 Web 版地址：http://openmindclub.com
